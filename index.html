@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TARUN ARMY - VIP Channel</title>
+    <title>TARUN ARMY</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,28 +15,15 @@
         }
 
         body {
-            background: #050b14;
+            background-color: #070d14;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            color: #ffffff;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Background glow effect */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.15) 0%, rgba(0,0,0,0) 70%);
-            z-index: 0;
         }
 
         /* Full Screen Green Flash on Click */
@@ -57,49 +44,17 @@
             opacity: 1;
         }
 
-        /* Main Square-Type Rounded Card */
-        .card {
-            position: relative;
-            z-index: 1;
-            background: #0c1322;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        /* Main Container */
+        .container {
             width: 100%;
-            max-width: 400px;
-            padding: 30px 20px;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            max-width: 420px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* VIP Badge Top */
-        .vip-badge {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(6, 182, 212, 0.4);
-            color: #22d3ee;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
-        }
-
-        .vip-badge span {
-            width: 6px;
-            height: 6px;
-            background-color: #22d3ee;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #22d3ee;
-        }
-
-        /* Profile Image with Rotating Premium Gradient Animation */
+        /* Profile Image with Premium Rotating Animation */
         .img-container {
             position: relative;
             width: 130px;
@@ -115,19 +70,9 @@
             position: absolute;
             inset: -4px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, #06b6d4, #3b82f6, #f59e0b, #e11d48, #06b6d4);
+            background: conic-gradient(from 0deg, #38bdf8, #818cf8, #38bdf8);
             animation: rotateGlow 3s linear infinite;
-            filter: blur(6px);
-            z-index: 1;
-        }
-
-        .img-container::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, #06b6d4, #3b82f6, #f59e0b, #e11d48, #06b6d4);
-            animation: rotateGlow 3s linear infinite;
+            filter: blur(4px);
             z-index: 1;
         }
 
@@ -144,173 +89,121 @@
             object-fit: cover;
             background: #111827;
             z-index: 2;
-            border: 3px solid #0c1322;
+            border: 3px solid #070d14;
         }
 
-        /* Headline */
+        /* Headline & Members */
         h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 22px;
-            font-weight: 900;
+            font-size: 28px;
+            font-weight: 800;
             color: #ffffff;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
         }
 
-        h1 span {
-            color: #f59e0b;
+        .members {
+            font-size: 15px;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
-        .subtitle {
+        .tagline {
             font-size: 13px;
             color: #94a3b8;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        /* Stats Grid Boxes */
-        .stats-grid {
-            display: flex;
-            gap: 8px;
-            width: 100%;
-            margin-bottom: 22px;
-        }
-
-        .stat-box {
-            flex: 1;
-            background: #131c31;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 12px 6px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 14px;
-            font-weight: 800;
-            color: #f8fafc;
-            margin-bottom: 3px;
-        }
-
-        .stat-box:nth-child(3) .stat-value {
-            color: #f59e0b;
-        }
-
-        .stat-label {
-            font-size: 10px;
             font-weight: 700;
-            color: #64748b;
             letter-spacing: 0.5px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
 
-        /* Join Button with Glowing Wrapper */
-        .btn-wrapper {
-            position: relative;
+        /* Feature Badges Row */
+        .badges-row {
+            display: flex;
+            gap: 8px;
             width: 100%;
-            margin-bottom: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
         }
 
-        .btn-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            background: linear-gradient(90deg, #f59e0b, #fbbf24, #d97706, #f59e0b);
-            background-size: 300% 300%;
-            border-radius: 14px;
-            animation: btnGlow 3s ease infinite;
-            z-index: 1;
-            filter: blur(5px);
-            opacity: 0.8;
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        @keyframes btnGlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
+        /* Join Button */
         .join-btn {
-            position: relative;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #0f172a;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            color: #070d14;
             width: 100%;
             padding: 16px;
-            border-radius: 12px;
+            border-radius: 40px;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            z-index: 2;
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-            transition: transform 0.2s ease;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 15px;
         }
 
         .join-btn:hover {
-            transform: scale(1.02);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.5);
         }
 
-        /* Countdown Box Inside Card */
-        .timer-box {
-            background: #131c31;
-            border: 1px dashed rgba(255, 255, 255, 0.1);
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
+        .telegram-icon {
+            font-size: 18px;
         }
 
-        .timer-text {
-            font-size: 11px;
-            color: #94a3b8;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .timer-countdown {
-            font-size: 16px;
-            font-weight: 800;
-            color: #22d3ee;
-            font-family: monospace;
-        }
-
-        /* Footer Credit */
-        .footer-credit {
-            font-size: 11px;
+        /* Sub-info */
+        .sub-info {
+            font-size: 13px;
             color: #64748b;
-            font-weight: 600;
+            font-weight: 500;
+            margin-bottom: 20px;
         }
 
-        .footer-credit span {
-            color: #38bdf8;
-        }
-
-        /* Bottom Floating Notification Bar */
-        .floating-alert {
-            position: fixed;
-            bottom: 20px;
-            background: #0f172a;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            padding: 10px 20px;
+        /* Active Joined Counter */
+        .joined-counter {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
             border-radius: 30px;
+            font-size: 12px;
+            color: #cbd5e1;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 12px;
-            color: #f8fafc;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            z-index: 10;
+            margin-bottom: 40px;
         }
 
-        .floating-alert span {
-            color: #f59e0b;
+        .green-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        /* Footer Copyright */
+        .footer {
+            font-size: 11px;
+            color: #475569;
+            font-weight: 500;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -319,77 +212,43 @@
     <!-- Green Flash Screen Effect -->
     <div id="green-flash"></div>
 
-    <!-- Main Card -->
-    <div class="card">
-        <!-- VIP Access Badge -->
-        <div class="vip-badge">
-            <span></span> VIP ACCESS ACTIVE
-        </div>
-
+    <div class="container">
         <!-- Profile Image with Rotating Animation -->
         <div class="img-container">
             <img src="https://d1yei2z3i6k35z.cloudfront.net/18503587/6abe6112074112.44554605_10076.png" alt="Tarun Army" class="profile-img">
         </div>
 
         <!-- Headline -->
-        <h1>TARUN ARMY <span>👑</span></h1>
-        <div class="subtitle">Join Official Telegram VIP Channel</div>
+        <h1>TARUN ARMY</h1>
+        <div class="members">30.8K members</div>
+        <div class="tagline">JUST CLICK TO CHANGE YOUR LIFE 🚩</div>
 
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-value">30K+</div>
-                <div class="stat-label">Members</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">99%</div>
-                <div class="stat-label">Accuracy</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">FREE</div>
-                <div class="stat-label">Entry</div>
-            </div>
+        <!-- Badges Row -->
+        <div class="badges-row">
+            <div class="badge">🔒 Private</div>
+            <div class="badge">⚡ Free forever</div>
+            <div class="badge">🚀 Instant access</div>
         </div>
 
-        <!-- Join Button with Lighting Animation -->
-        <div class="btn-wrapper">
-            <a href="https://t.me/+S_-EP2gtaNsxOWY1" class="join-btn" onclick="triggerGreen(event)">
-                ⚡ JOIN TELEGRAM NOW ⚡
-            </a>
+        <!-- Join Button -->
+        <a href="https://t.me/+S_-EP2gtaNsxOWY1" class="join-btn" onclick="triggerGreen(event)">
+            <span class="telegram-icon">✈️</span> Join Channel
+        </a>
+
+        <div class="sub-info">Opens in Telegram</div>
+
+        <!-- Joined Counter -->
+        <div class="joined-counter">
+            <div class="green-dot"></div> 1325 joined in the last 24 hours
         </div>
 
-        <!-- Timer Box -->
-        <div class="timer-box">
-            <span class="timer-text">FREE LINK EXPIRES IN:</span>
-            <span class="timer-countdown" id="countdown">00:07</span>
+        <!-- Footer -->
+        <div class="footer">
+            © 2026 TARUN ARMY · Not affiliated with Telegram
         </div>
-
-        <!-- Footer Managed By -->
-        <div class="footer-credit">
-            Ads Managed By <span>@TARUN_SUPPORT</span>
-        </div>
-    </div>
-
-    <!-- Bottom Live Join Alert -->
-    <div class="floating-alert">
-        <span>🔥</span> Rohit P. just joined the VIP Channel!
     </div>
 
     <script>
-        // Countdown timer logic
-        let totalSeconds = 7;
-        const countdownEl = document.getElementById('countdown');
-        
-        const timerInterval = setInterval(() => {
-            totalSeconds--;
-            if (totalSeconds >= 0) {
-                let formattedTime = totalSeconds < 10 ? "00:0" + totalSeconds : "00:" + totalSeconds;
-                countdownEl.textContent = formattedTime;
-            } else {
-                clearInterval(timerInterval);
-            }
-        }, 1000);
-
         // Green Screen Flash Effect on Button Click
         function triggerGreen(event) {
             event.preventDefault(); 
